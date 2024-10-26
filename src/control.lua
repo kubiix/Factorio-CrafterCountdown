@@ -87,7 +87,7 @@ local function on_entity_hovered(entity, player)
         local progress = entity.crafting_progress or 0
         local remaining_time = total_crafting_time * (1 - progress)
 
-        if remaining_time > 0 and total_crafting_time >= settings.player_default["cc-minimum-recipe-energy"].value then
+        if remaining_time > 0 and total_crafting_time >= settings.get_player_settings(player)["cc-minimum-recipe-energy"].value then
            
             if not storage.overlay then
                 -- Create a new overlay for this entity
