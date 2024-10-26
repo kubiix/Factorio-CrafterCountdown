@@ -5,5 +5,5 @@
     "author": "kubiix",
     "description": "Displays remaining craft time on hovering crafter entity.",
     "factorio_version": "2.0",
-    "dependencies": ["base >= 2.0", "flib >= 0.15.0"] 
+    "dependencies": ["base >= 2.0"] 
   }

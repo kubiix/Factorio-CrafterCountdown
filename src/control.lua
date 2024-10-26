@@ -1,5 +1,3 @@
-local flib_gui = require("__flib__.gui")
-
 local function ternary(condition, trueVal, falseVal)
     if condition then
         return trueVal
@@ -167,83 +165,6 @@ script.on_event(defines.events.on_gui_click, function(event)
         player.print("Window pinned, now immovable!")
       end
     end
-  end)
-
-function create_tracked_entities_window(player)
-    if player.gui.screen.tracked_entities_window then
-      -- If the window already exists, remove it to avoid duplication
-      player.gui.screen.tracked_entities_window.destroy()
-    end
-  
-    -- Define the window structure using FLIB
-    local window = flib_gui.build(player.gui.screen, {
-      -- Outer frame (draggable)
-      {
-        type = "frame",
-        name = "tracked_entities_window",
-        direction = "vertical",
-        style_mods = {top_padding = 0},
-        caption = {"Tracked Entities"},
-        -- Make it draggable by using the `draggable` property
-        drag_target = "tracked_entities_window",
-        {
-          type = "flow", -- Button bar flow
-          direction = "horizontal",
-          {
-            type = "button",
-            name = "tracked_entities_pin_button",
-            caption = "Pin",
-            style = "frame_action_button",
-          },
-          {
-            type = "button",
-            name = "tracked_entities_close_button",
-            caption = "Close",
-            style = "frame_action_button",
-          }
-        },
-        {
-          type = "frame",
-          name = "tracked_entities_content_frame",
-          direction = "vertical",
-          style = "inside_shallow_frame_with_padding",
-          {
-            type = "table", -- Grid layout to display items
-            name = "tracked_entities_table",
-            column_count = 1, -- Single column for text
-            {
-              type = "label",
-              caption = "Text1"
-            },
-            {
-              type = "label",
-              caption = "Text2"
-            },
-            {
-              type = "label",
-              caption = "Text3"
-            },
-            {
-              type = "label",
-              caption = "Text4"
-            },
-            {
-              type = "label",
-              caption = "Text5"
-            },
-          }
-        }
-      }
-    })
-  
-    -- Set the default to pinned, i.e., make the window immovable
-    window.window.force_auto_center()
-  end
-
--- Create the window for the first time when a player joins
-script.on_event(defines.events.on_player_created, function(event)
-    local player = game.players[event.player_index]
-    --create_tracked_entities_window(player)
   end)
 
 -- Event handler for when the player's selected entity changes (hover)
