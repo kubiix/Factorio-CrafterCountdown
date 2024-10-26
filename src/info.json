@@ -1,0 +1,9 @@
+{
+    "name": "crafter-countdown",
+    "version": "0.1.0",
+    "title": "Crafter Countdown",
+    "author": "kubiix",
+    "description": "Displays remaining craft time on hovering crafter entity.",
+    "factorio_version": "2.0",
+    "dependencies": ["base >= 2.0", "flib >= 0.15.0"] 
+  }
